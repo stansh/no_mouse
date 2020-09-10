@@ -2,6 +2,7 @@
 console.log(words.length) */
 
 /* window.onload = document.getElementById('input').focus(); */
+
  
  function getRandomWord() {
  let words;
@@ -17,7 +18,7 @@ console.log(words.length) */
      const givenWord = document.querySelector('#givenWord')
      givenWord.innerHTML = words[randomIndex]
      })
-
+     
    } 
 
   /*  const button = document.getElementById("button");
@@ -33,6 +34,20 @@ button.addEventListener('mouseup', function () {
   alert(`Button held down for ${timeDifference}ms`);
 }); */
 
+
+
+function checkWord () {
+  document.querySelector('#checkResult').innerHTML = ''
+  const enteredWord = document.querySelector('#speltWord').value;
+  console.log(enteredWord)
+  const renderedWord = document.querySelector('#givenWord').innerHTML;
+  console.log(renderedWord)
+  if (enteredWord === renderedWord) {
+    document.querySelector('#checkResult').innerHTML = 'Right'
+  } else {
+    document.querySelector('#checkResult').innerHTML = 'Wrong'
+  }
+
+}
    
          
-    
