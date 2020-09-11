@@ -23,7 +23,7 @@
                  <input type="text" class="form-control" id="speltWord"  placeholder="" autofocus >
             </div>
             
-        <button class = 'col-2 btn btn-success' onclick = 'getRandomWord(), checkWord ()'>Done</button>
+        <button class = 'col-2 btn btn-success'  id = 'button' tabindex="0">Done</button>
             </div class = 'col-4'>
             <h1 id = 'checkResult'></h1>
             </div>
@@ -40,7 +40,9 @@
     <script src='script.js'></script>
     <script src="node_modules\mousetrap.min.js"></script>
     <script>
-        Mousetrap.bind('space', checkWord());
+        /* Mousetrap.bind('1', checkWord());  */
+        Mousetrap.bind('enter', checkWord());
+        
     </script>
 </body>
 </html>

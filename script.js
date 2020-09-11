@@ -12,7 +12,7 @@ console.log(words.length) */
      words = res;
      do {
       var randomIndex = Math.floor(Math.random() * words.length);
-     } while (words[randomIndex].length < 10)
+     } while (words[randomIndex].length < 15)
      console.log(words[randomIndex])
      console.log(words[randomIndex].length)
      const givenWord = document.querySelector('#givenWord')
@@ -21,22 +21,32 @@ console.log(words.length) */
      
    } 
 
-  /*  const button = document.getElementById("button");
-let mousedownTime;
 
-button.addEventListener('mousedown', () => {
-  mousedownTime = new Date().getTime();
+var startTime;
+var doneTime;
+
+const input = document.querySelector("#speltWord");
+input.addEventListener('keydown', () => {
+  
+input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input.removeEventListener('keydown', null)
+  
 });
 
-button.addEventListener('mouseup', function () {
-  const mouseupTime = new Date().getTime(),
-        timeDifference = mouseupTime - mousedownTime;
-  alert(`Button held down for ${timeDifference}ms`);
-}); */
 
+
+
+var button = document.querySelector('#button');
+button.addEventListener('keydown', () => {
+  
+  event.keyCode === 13 ? button.click() : '';
+  doneTime = Number(event.timeStamp.toFixed(0)); 
+  checkWord ();
+
+});
 
 
 function checkWord () {
+
   document.querySelector('#checkResult').innerHTML = ''
   const enteredWord = document.querySelector('#speltWord').value;
   console.log(enteredWord)
@@ -47,7 +57,13 @@ function checkWord () {
   } else {
     document.querySelector('#checkResult').innerHTML = 'Wrong'
   }
+  
+  console.log('start time ', startTime)
+  console.log('done time ',doneTime)
+  let time = doneTime - startTime;
+  console.log('timer',time)
+  getRandomWord()
 
 }
    
-         
+  
