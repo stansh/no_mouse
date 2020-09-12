@@ -2,9 +2,10 @@
 console.log(words.length) */
 
 /* window.onload = document.getElementById('input').focus(); */
-
+var startTime;
+var doneTime;
  
- function getRandomWord() {
+function getRandomWord() {
  let words;
  fetch('node_modules\\an-array-of-english-words\\index.json')
  .then(res => res.json())
@@ -17,17 +18,19 @@ console.log(words.length) */
      console.log(words[randomIndex].length)
      const givenWord = document.querySelector('#givenWord')
      givenWord.innerHTML = words[randomIndex]
+     givenWord.classList.add("animate__animated")
+     givenWord.classList.add("animate__fadeOut")
+     givenWord.classList.add("animate__delay-3s");
+    
      })
      
    } 
 
 
-var startTime;
-var doneTime;
+
 
 const input = document.querySelector("#speltWord");
 input.addEventListener('keydown', () => {
-  
 input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input.removeEventListener('keydown', null)
   
 });
@@ -36,33 +39,37 @@ input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input
 
 
 var button = document.querySelector('#button');
-button.addEventListener('keydown', () => {
-  
-  event.keyCode === 13 ? button.click() : '';
+button.addEventListener('click', () => {
   doneTime = Number(event.timeStamp.toFixed(0)); 
+  const word = document.querySelector('#givenWord')
+  word.classList.remove("animate__animated")
+  word.classList.remove("animate__fadeOut")
   checkWord ();
-
+  getRandomWord();
 });
 
 
 function checkWord () {
-
+  let time = ((doneTime - startTime) / 1000).toFixed(1);
   document.querySelector('#checkResult').innerHTML = ''
   const enteredWord = document.querySelector('#speltWord').value;
   console.log(enteredWord)
   const renderedWord = document.querySelector('#givenWord').innerHTML;
   console.log(renderedWord)
   if (enteredWord === renderedWord) {
-    document.querySelector('#checkResult').innerHTML = 'Right'
+    document.querySelector('#checkResult').innerHTML = 'Right';
+    document.querySelector('#timer').innerHTML = `Time to spell the word: ${time} sec`;
+
   } else {
     document.querySelector('#checkResult').innerHTML = 'Wrong'
+    document.querySelector('#timer').innerHTML = `Time to spell the word: ${time} sec`;
   }
   
   console.log('start time ', startTime)
   console.log('done time ',doneTime)
-  let time = doneTime - startTime;
+  
   console.log('timer',time)
-  getRandomWord()
+  
 
 }
    

@@ -5,27 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarala&display=swap" rel="stylesheet">
 
     <link rel ="stylesheet" href="styles.css">
     <title>Type Test</title>
 </head>
-<body onload = 'getRandomWord()' >
-    <div class = 'container'>
-        <div class = 'row '>
+<body onload="getRandomWord()"  >
+    <div class = 'container text-white '>
+        <div class = 'row  justify-content-center ' >
             
-            <h1 id = 'givenWord' class = 'animate__animated'></h1>
+            <h1 style = 'font-size:10vw' id = 'givenWord'></h1>
             
            
         </div>
-        <div class = 'row'>
-            <div class = 'col-4'>
+        <div class = 'row justify-content-center' >
+            <div class = 'col-4' >
                 <label for="speltWord">Spell this word and hit Space</label>
                  <input type="text" class="form-control" id="speltWord"  placeholder="" autofocus >
+                 <button class = 'btn w-100 mt-2'  id = 'button' tabindex="0">Done</button>
             </div>
             
-        <button class = 'col-2 btn btn-success'  id = 'button' tabindex="0">Done</button>
-            </div class = 'col-4'>
-            <h1 id = 'checkResult'></h1>
+        
+           
+          
+
+            </div>
+            <div class = 'row justify-content-center'>
+                <h1 id = 'checkResult'></h1>
+                <h1 id = 'timer'></h1>
             </div>
 
         
@@ -41,7 +48,7 @@
     <script src="node_modules\mousetrap.min.js"></script>
     <script>
         /* Mousetrap.bind('1', checkWord());  */
-        Mousetrap.bind('enter', checkWord());
+        Mousetrap.bind('enter', document.querySelector('#speltWord"').focusout());
         
     </script>
 </body>
