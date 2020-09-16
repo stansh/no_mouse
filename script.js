@@ -41,9 +41,9 @@ input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input
 var button = document.querySelector('#button');
 button.addEventListener('click', () => {
   doneTime = Number(event.timeStamp.toFixed(0)); 
-  const word = document.querySelector('#givenWord')
-  word.classList.remove("animate__animated")
-  word.classList.remove("animate__fadeOut")
+  const word = document.querySelector('#givenWord');
+  word.classList.remove("animate__animated");
+  word.classList.remove("animate__fadeOut");
   checkWord ();
   getRandomWord();
 });
@@ -51,18 +51,21 @@ button.addEventListener('click', () => {
 
 function checkWord () {
   let time = ((doneTime - startTime) / 1000).toFixed(1);
-  document.querySelector('#checkResult').innerHTML = ''
+  /* document.querySelector('#checkResult').innerHTML = '' */
   const enteredWord = document.querySelector('#speltWord').value;
   console.log(enteredWord)
   const renderedWord = document.querySelector('#givenWord').innerHTML;
   console.log(renderedWord)
   if (enteredWord === renderedWord) {
-    document.querySelector('#checkResult').innerHTML = 'Right';
-    document.querySelector('#timer').innerHTML = `Time to spell the word: ${time} sec`;
+    const card = document.querySelector('.card');
+    card.classList.remove("d-none");
+    card.classList.add("d-block");
+    /* document.querySelector('.card-title').innerHTML = 'Right';
+    document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`; */
 
   } else {
-    document.querySelector('#checkResult').innerHTML = 'Wrong'
-    document.querySelector('#timer').innerHTML = `Time to spell the word: ${time} sec`;
+    document.querySelector('.card-title').innerHTML = 'Wrong'
+    
   }
   
   console.log('start time ', startTime)
