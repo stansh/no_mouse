@@ -13,7 +13,7 @@ function getRandomWord() {
      words = res;
      do {
       var randomIndex = Math.floor(Math.random() * words.length);
-     } while (words[randomIndex].length < 15)
+     } while (words[randomIndex].length < 7)
      console.log(words[randomIndex])
      console.log(words[randomIndex].length)
      const givenWord = document.querySelector('#givenWord')
@@ -21,26 +21,39 @@ function getRandomWord() {
      givenWord.classList.add("animate__animated")
      givenWord.classList.add("animate__fadeOut")
      givenWord.classList.add("animate__delay-3s");
-    
+     
      })
+     /* let button = document.querySelector('#button');
+     button.addEventListener('click', () => {
+     startTime = Number(event.timeStamp.toFixed(0));  */
+     startTime = new Date().getSeconds();
+     console.log(startTime) 
+    
+     /* startTime = Number(new Date().getTime())
+     console.log(startTime) */
+     /* const input = document.querySelector("#speltWord");
+     input.addEventListener('keydown', () => {
+     input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input.removeEventListener('keydown', null)   */
      
    } 
 
 
 
 
-const input = document.querySelector("#speltWord");
+/* const input = document.querySelector("#speltWord");
 input.addEventListener('keydown', () => {
-input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input.removeEventListener('keydown', null)
+input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input.removeEventListener('keydown', null) 
+
   
-});
+});*/
 
 
 
 
 var button = document.querySelector('#button');
 button.addEventListener('click', () => {
-  doneTime = Number(event.timeStamp.toFixed(0)); 
+  /* doneTime = Number(event.timeStamp.toFixed(0));  */
+  doneTime = new Date().getSeconds();
   const word = document.querySelector('#givenWord');
   word.classList.remove("animate__animated");
   word.classList.remove("animate__fadeOut");
@@ -50,7 +63,10 @@ button.addEventListener('click', () => {
 
 
 function checkWord () {
-  let time = ((doneTime - startTime) / 1000).toFixed(1);
+  console.log('start time ', startTime);
+  /* let time = ((doneTime - startTime) / 1000).toFixed(1); */
+  let time = doneTime - startTime;
+  
   /* document.querySelector('#checkResult').innerHTML = '' */
   const enteredWord = document.querySelector('#speltWord').value;
   console.log(enteredWord)
@@ -60,11 +76,12 @@ function checkWord () {
     const card = document.querySelector('.card');
     card.classList.remove("d-none");
     card.classList.add("d-block");
-    /* document.querySelector('.card-title').innerHTML = 'Right';
-    document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`; */
+    document.querySelector('.card-title').innerHTML = 'Right';
+    document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
 
   } else {
-    document.querySelector('.card-title').innerHTML = 'Wrong'
+    document.querySelector('.card-title').innerHTML = 'Wrong';
+    document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
     
   }
   
