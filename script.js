@@ -4,6 +4,7 @@ console.log(words.length) */
 /* window.onload = document.getElementById('input').focus(); */
 var startTime;
 var doneTime;
+let startTimer;
  
 function getRandomWord() {
  let words;
@@ -59,10 +60,23 @@ button.addEventListener('click', () => {
   word.classList.remove("animate__fadeOut");
   checkWord ();
   getRandomWord();
+  const timer = document.querySelector('#timer');
+  let zero = 0;
+  timer.innerHTML = `: ${zero.toString()}`;
+  startTimer = setInterval (
+    () => {
+      zero++;
+      timer.innerHTML = `: ${zero.toString()}`;
+      
+    }, 1000
+  )
+   
+  
 });
 
 
 function checkWord () {
+  clearInterval(startTimer);
   console.log('start time ', startTime);
   /* let time = ((doneTime - startTime) / 1000).toFixed(1); */
   let time = doneTime - startTime;
@@ -84,12 +98,7 @@ function checkWord () {
     document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
     
   }
-  
-  console.log('start time ', startTime)
-  console.log('done time ',doneTime)
-  
-  console.log('timer',time)
-  
+
 
 }
    
