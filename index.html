@@ -20,44 +20,24 @@
            
         </div>
         <div class = 'row justify-content-center' >
-            <div class = 'col-4 mt-4'>
+            <div class = 'col-4 mt-4 center-align'>
                 <h5 id='timer'></h5>
   
             </div>
             <div class = 'col-4 ' >
                 <label for="speltWord" >Spell this word and hit Space</label>
-                 <input type="text" class="form-control" id="speltWord"  placeholder="" autofocus >
-                 <button class = 'btn w-100 mt-2'  id = 'button' tabindex="0">New Word</button>
+                 <input type="text" class="form-control" id="input"  placeholder="" autofocus accesskey="enter" >
+                 <button class = 'btn w-100 mt-2'  id = 'button' tabindex="0" autofocus>New Word</button>
             </div> 
             <div class = 'col-4 mt-4' >
-                <div class="card " >
+                <div class="card" >
                     <div class="card-body text-center">
                       <h5 class="card-title"></h5>
                       <p class="card-text"></p>
                     </div>
                 
             </div>
-
-           
-           
         </div>
-            <div class = 'row justify-content-center'>
-               <!--  <div class="card " >
-                    <div class="card-body text-center">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"></p>
-                    </div>
-                  </div> -->
-                <!-- <div >
-                   
-                      <h5 id='timer' ></h5>
-                     
-                    
-                </div> -->
-            </div>
-
-        
-      
 
     </div>
     
@@ -67,10 +47,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src='script.js'></script>
     <script src="node_modules\mousetrap.min.js"></script>
-    <script>
-        /* Mousetrap.bind('1', checkWord());  */
-        Mousetrap.bind('enter', document.querySelector('#speltWord"').focusout());
-        
-    </script>
+
 </body>
 </html>

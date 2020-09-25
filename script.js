@@ -24,35 +24,28 @@ function getRandomWord() {
      givenWord.classList.add("animate__delay-3s");
      
      })
-     /* let button = document.querySelector('#button');
-     button.addEventListener('click', () => {
-     startTime = Number(event.timeStamp.toFixed(0));  */
+ 
      startTime = new Date().getSeconds();
      console.log(startTime) 
-    
-     /* startTime = Number(new Date().getTime())
-     console.log(startTime) */
-     /* const input = document.querySelector("#speltWord");
-     input.addEventListener('keydown', () => {
-     input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input.removeEventListener('keydown', null)   */
+
      
    } 
 
 
-
-
-/* const input = document.querySelector("#speltWord");
-input.addEventListener('keydown', () => {
-input.value.length == 0 ? startTime = Number(event.timeStamp.toFixed(0)) : input.removeEventListener('keydown', null) 
-
-  
-});*/
-
-
+const input = document.querySelector("#input");
+input.addEventListener('keyup', () => { 
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("button").click();
+  }
+});
 
 
 var button = document.querySelector('#button');
-button.addEventListener('click', () => {
+button.addEventListener('click', clickButton);
+
+
+function clickButton() {
   /* doneTime = Number(event.timeStamp.toFixed(0));  */
   doneTime = new Date().getSeconds();
   const word = document.querySelector('#givenWord');
@@ -70,36 +63,33 @@ button.addEventListener('click', () => {
       
     }, 1000
   )
-   
-  
-});
+    
+};
 
 
 function checkWord () {
   clearInterval(startTimer);
   console.log('start time ', startTime);
-  /* let time = ((doneTime - startTime) / 1000).toFixed(1); */
   let time = doneTime - startTime;
-  
-  /* document.querySelector('#checkResult').innerHTML = '' */
-  const enteredWord = document.querySelector('#speltWord').value;
+  let enteredWord = document.querySelector('#input').value;
   console.log(enteredWord)
-  const renderedWord = document.querySelector('#givenWord').innerHTML;
+  let renderedWord = document.querySelector('#givenWord').innerHTML;
   console.log(renderedWord)
   if (enteredWord === renderedWord) {
     const card = document.querySelector('.card');
+    
     card.classList.remove("d-none");
-    card.classList.add("d-block");
+    /* card.classList.add("d-block"); */
     document.querySelector('.card-title').innerHTML = 'Right';
     document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
 
   } else {
     document.querySelector('.card-title').innerHTML = 'Wrong';
     document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
-    
+   
   }
-
+  document.querySelector('#input').value ='';
 
 }
    
-  
+
