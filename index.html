@@ -15,30 +15,23 @@
     <div class = 'container-md text-white'>
         <div class = 'row justify-content-center'>
             <div class ='col text-center'>
-            <h5>The word will disappear in 3 seconds. Spell the word and hit Enter.</h5>
-            <h1 style = 'font-size:10vw' id = 'givenWord'></h1>
+                <h5>The word will disappear in 3 seconds. Spell the word and hit Enter.</h5>
+                <h1 style = 'font-size:10vw' id = 'givenWord'></h1>
             </div>
-            
-           
         </div>
         <div class = 'row justify-content-center' >
-            <div class = 'col-4 mt-4 text-center  '>
-                <h5 id='timer'></h5>
+            <div class = 'col-sm-4 mt-4 text-center  '>
+                <h5 style = 'font-size:6vw'  id='timer'></h5>
   
             </div>
-            <div class = 'col-4 text-center ' >
+            <div class = 'col-sm-4text-center ' >
                 <label for="speltWord" >Spell this word and hit Space</label>
                  <input type="text" class="form-control" id="input"  placeholder="" autofocus accesskey="enter" >
                  <button class = 'btn w-100 mt-2'  id = 'button' tabindex="0" autofocus>New Word</button>
             </div> 
-            <div class = 'col-4 mt-4' >
-                <div class="card" >
-                    <div class="card-body text-center">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text"></p>
-                    </div>
-                
-                </div>
+            <div class = 'col-sm-4 mt-4 text-center' > 
+                <h2 id = 'checkResult'></h2>
+                <p id = 'timeToSpell'></p>
             </div>
 
         </div>

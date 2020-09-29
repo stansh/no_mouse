@@ -34,7 +34,7 @@ function getRandomWord() {
          
        }, 1000
      )
-       
+     
 
      
    } 
@@ -54,28 +54,25 @@ button.addEventListener('click', clickButton);
 
 
 function clickButton() {
-  /* doneTime = Number(event.timeStamp.toFixed(0));  */
   doneTime = new Date().getSeconds();
   const word = document.querySelector('#givenWord');
   word.classList.remove("animate__animated");
   word.classList.remove("animate__fadeOut");
+  /* let checkResult =  document.querySelector('#checkResult');
+  checkResult.classList.remove('animate__animated');
+  checkResult.classList.remove('animate__flash');
+  let timeToSpell = document.querySelector('#timeToSpell');
+  timeToSpell.classList.remove('animate__animated');
+  timeToSpell.classList.remove('animate__zoomIn'); */
   checkWord ();
   getRandomWord();
- /*  const timer = document.querySelector('#timer');
-  let zero = 0;
-  timer.innerHTML = `: ${zero.toString()}`;
-  startTimer = setInterval (
-    () => {
-      zero++;
-      timer.innerHTML = `: ${zero.toString()}`;
-      
-    }, 1000
-  )
-     */
+ 
+
 };
 
 
 function checkWord () {
+ 
   clearInterval(startTimer);
   console.log('start time ', startTime);
   let time = doneTime - startTime;
@@ -84,16 +81,24 @@ function checkWord () {
   let renderedWord = document.querySelector('#givenWord').innerHTML;
   console.log(renderedWord)
   if (enteredWord === renderedWord) {
-    const card = document.querySelector('.card');
-    card.classList.remove("d-none");
-    /* card.classList.add("d-block"); */
-    document.querySelector('.card-title').innerHTML = 'Right';
-    document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
+    let checkResult =  document.querySelector('#checkResult');
+    checkResult.innerHTML = 'Right';
+    checkResult.classList.add('animate__animated');
+    checkResult.classList.add('animate__flash');
+    let timeToSpell = document.querySelector('#timeToSpell');
+    timeToSpell.innerHTML = `Time to spell the word: ${time} sec`;
+    timeToSpell.classList.add('animate__animated');
+    timeToSpell.classList.add('animate__zoomIn');
     
-
   } else {
-    document.querySelector('.card-title').innerHTML = 'Wrong';
-    document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
+    let checkResult =  document.querySelector('#checkResult');
+    checkResult.innerHTML = 'Wrong';
+    checkResult.classList.add('animate__animated');
+    checkResult.classList.add('animate__flash');
+    let timeToSpell = document.querySelector('#timeToSpell');
+    timeToSpell.innerHTML = `Time to spell the word: ${time} sec`;
+    timeToSpell.classList.add('animate__animated');
+    timeToSpell.classList.add('animate__zoomIn');
    
   }
   document.querySelector('#input').value ='';
