@@ -15,14 +15,18 @@ body {
 
 
 #givenWord {
-  padding-top: 15rem;
+  padding-top: 5rem;
   font-size: 40px;
   font-family: 'Sarala', sans-serif;
   user-select: none; 
+  
+ 
 }
 
 .row {
-  padding-top:5rem ;
+  padding-top:3rem ;
+ 
+  
 }
 
 #button { 

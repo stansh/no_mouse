@@ -1,14 +1,11 @@
-/* import words from '/node_modules/an-array-of-english-words/index.js';
-console.log(words.length) */
 
-/* window.onload = document.getElementById('input').focus(); */
 var startTime;
 var doneTime;
 let startTimer;
  
 function getRandomWord() {
  let words;
- fetch('node_modules\\an-array-of-english-words\\index.json')
+ fetch('words.json')
  .then(res => res.json())
  .then(res => {
      words = res;
@@ -88,11 +85,11 @@ function checkWord () {
   console.log(renderedWord)
   if (enteredWord === renderedWord) {
     const card = document.querySelector('.card');
-    
     card.classList.remove("d-none");
     /* card.classList.add("d-block"); */
     document.querySelector('.card-title').innerHTML = 'Right';
     document.querySelector('.card-text').innerHTML = `Time to spell the word: ${time} sec`;
+    
 
   } else {
     document.querySelector('.card-title').innerHTML = 'Wrong';

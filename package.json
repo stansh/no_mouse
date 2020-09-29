@@ -9,6 +9,7 @@
   "author": "stansh",
   "license": "ISC",
   "dependencies": {
-    "an-array-of-english-words": "^2.0.0"
+    "an-array-of-english-words": "^2.0.0",
+    "bootstrap": "^4.5.2"
   }
 }
