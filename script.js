@@ -27,6 +27,17 @@ function getRandomWord() {
  
      startTime = new Date().getSeconds();
      console.log(startTime) 
+     const timer = document.querySelector('#timer');
+     let zero = 0;
+     timer.innerHTML = `: ${zero.toString()}`;
+     startTimer = setInterval (
+       () => {
+         zero++;
+         timer.innerHTML = `: ${zero.toString()}`;
+         
+       }, 1000
+     )
+       
 
      
    } 
@@ -53,7 +64,7 @@ function clickButton() {
   word.classList.remove("animate__fadeOut");
   checkWord ();
   getRandomWord();
-  const timer = document.querySelector('#timer');
+ /*  const timer = document.querySelector('#timer');
   let zero = 0;
   timer.innerHTML = `: ${zero.toString()}`;
   startTimer = setInterval (
@@ -63,7 +74,7 @@ function clickButton() {
       
     }, 1000
   )
-    
+     */
 };
 
 
