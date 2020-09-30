@@ -9,23 +9,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
     <link rel ="stylesheet" href="styles.css">
-    <title>Type Test</title>
+    <title>Spell It!</title>
 </head>
 <body onload="getRandomWord()"  >
     <div class = 'container-md text-white'>
-        <div class = 'row justify-content-center'>
-            <div class ='col text-center'>
+        <div class = 'row justify-content-center '>
+            <div class ='col-sm-10 text-center'>
                 <h5>The word will disappear in 3 seconds. Spell the word and hit Enter.</h5>
-                <h1 style = 'font-size:10vw' id = 'givenWord'></h1>
+                <h1 style = 'font-size:8vw' id = 'givenWord' class = 'mr-auto'></h1>
             </div>
         </div>
-        <div class = 'row justify-content-center' >
-            <div class = 'col-sm-4 mt-4 text-center  '>
-                <h5 style = 'font-size:6vw'  id='timer'></h5>
+        <div class = 'row' >
+            <div class = 'col-sm-4'>
+                <h5 style = 'font-size:6vw'  id='timer' class = 'text-center'></h5>
   
             </div>
-            <div class = 'col-sm-4text-center ' >
-                <label for="speltWord" >Spell this word and hit Space</label>
+            <div class = 'col-sm-4 text-center ' >
                  <input type="text" class="form-control" id="input"  placeholder="" autofocus accesskey="enter" >
                  <button class = 'btn w-100 mt-2'  id = 'button' tabindex="0" autofocus>New Word</button>
             </div> 

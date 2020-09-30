@@ -11,11 +11,12 @@ function getRandomWord() {
      words = res;
      do {
       var randomIndex = Math.floor(Math.random() * words.length);
-     } while (words[randomIndex].length < 7)
+     } while (words[randomIndex].length < 10)
      console.log(words[randomIndex])
      console.log(words[randomIndex].length)
      const givenWord = document.querySelector('#givenWord')
      givenWord.innerHTML = words[randomIndex]
+     givenWord.classList.add("text-center")
      givenWord.classList.add("animate__animated")
      givenWord.classList.add("animate__fadeOut")
      givenWord.classList.add("animate__delay-3s");
@@ -45,6 +46,13 @@ input.addEventListener('keyup', () => {
   if (event.keyCode === 13) {
     event.preventDefault();
     document.getElementById("button").click();
+    let checkResult =  document.querySelector('#checkResult');
+    checkResult.classList.remove('animate__animated');
+    checkResult.classList.remove('animate__flash');
+    let timeToSpell = document.querySelector('#timeToSpell');
+    timeToSpell.classList.remove('animate__animated');
+    timeToSpell.classList.remove('animate__zoomIn');
+   
   }
 });
 
@@ -58,12 +66,8 @@ function clickButton() {
   const word = document.querySelector('#givenWord');
   word.classList.remove("animate__animated");
   word.classList.remove("animate__fadeOut");
-  /* let checkResult =  document.querySelector('#checkResult');
-  checkResult.classList.remove('animate__animated');
-  checkResult.classList.remove('animate__flash');
-  let timeToSpell = document.querySelector('#timeToSpell');
-  timeToSpell.classList.remove('animate__animated');
-  timeToSpell.classList.remove('animate__zoomIn'); */
+ 
+  
   checkWord ();
   getRandomWord();
  
