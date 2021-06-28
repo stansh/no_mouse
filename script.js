@@ -11,9 +11,9 @@ function getRandomWord() {
      words = res;
      do {
       var randomIndex = Math.floor(Math.random() * words.length);
-     } while (words[randomIndex].length < 10)
-     console.log(words[randomIndex])
-     console.log(words[randomIndex].length)
+     } while (words[randomIndex].length < 20)
+     //console.log(words[randomIndex])
+     //console.log(words[randomIndex].length)
      const givenWord = document.querySelector('#givenWord')
      givenWord.innerHTML = words[randomIndex]
      givenWord.classList.add("text-center")
@@ -24,7 +24,7 @@ function getRandomWord() {
      })
  
      startTime = new Date().getSeconds();
-     console.log(startTime) 
+     //console.log(startTime) 
      const timer = document.querySelector('#timer');
      let zero = 0;
      timer.innerHTML = `: ${zero.toString()}`;
@@ -42,9 +42,9 @@ function getRandomWord() {
 
 
 const input = document.querySelector("#input");
-input.addEventListener('keyup', () => { 
-  if (event.keyCode === 13) {
-    event.preventDefault();
+input.addEventListener('keyup', (e) => { 
+  if (e.keyCode === 13) {
+    e.preventDefault();
     document.getElementById("button").click();
     let checkResult =  document.querySelector('#checkResult');
     checkResult.classList.remove('animate__animated');

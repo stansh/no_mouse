@@ -12,11 +12,14 @@ body {
   padding-top: 5rem;
   font-family: 'Sarala', sans-serif;
   user-select: none; 
+  font-size: 6vw;
+ 
 
 }
 
 .row {
   padding-top:3rem ;
+
  
   
 }
